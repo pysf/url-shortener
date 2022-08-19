@@ -1,5 +1,11 @@
 version: '3.7'
 
+networks:
+    app-tier:
+        driver: bridge
+volumes:
+    redis_data:
+
 services:
     node:
         image: 'node:16'
@@ -12,3 +18,27 @@ services:
         expose:
             - '3000'
         command: 'npm run dev'
+        networks:
+            - app-tier
+    etcd:
+        container_name: etcd
+        image: 'bitnami/etcd:latest'
+        environment:
+            - ALLOW_NONE_AUTHENTICATION=yes
+            - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+        ports:
+            - 2379:2379
+            - 2380:2380
+        networks:
+            - app-tier
+    redis:
+        image: docker.io/bitnami/redis:7.0
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+            - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+        ports:
+            - '6379:6379'
+        volumes:
+            - 'redis_data:/bitnami/redis/data'
+        networks:
+            - app-tier
