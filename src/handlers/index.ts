@@ -1,8 +1,13 @@
 import { buildCreateURLHandler } from './create-url-handler'
-import { createURL } from '../url'
+import { buildQueryURLHandler } from './query-url-handler'
+import { createURL, queryURL } from '../url'
 
 const createURLHandler = buildCreateURLHandler({
     createURL,
 })
 
-export { createURLHandler }
+const queryURLHandler = buildQueryURLHandler({
+    queryURL,
+})
+
+export { createURLHandler, queryURLHandler }

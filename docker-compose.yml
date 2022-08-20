@@ -57,7 +57,7 @@ services:
             - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
         ports:
             - '6379:6379'
-        volumes:
-            - 'redis_data:/bitnami/redis/data'
+        #        volumes:
+        #            - 'redis_data:/bitnami/redis/data'
         networks:
             - app-tier

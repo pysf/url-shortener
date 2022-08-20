@@ -7,4 +7,5 @@ module.exports = {
     COUNTER_RANGE: 10,
     REDIS_URL: 'redis://redis:6379',
     SHORTNER_DOMAIN: 'https://tier.app',
+    VISIT_KEY_PREFIX: 'visit-',
 }
