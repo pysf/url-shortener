@@ -12,15 +12,15 @@ export function buildLoadRange(options: {
         options
 
     return async function loadRange() {
-        const lock = await etcd.lock(lockResource)
-
+        const lock = etcd.lock(lockResource)
+        await lock.acquire()
         let lastCounter = await etcd.get(counterResource).number()
         lastCounter = lastCounter || 0
 
         counterRange.start = lastCounter + 1
         counterRange.current = lastCounter + 1
         counterRange.end = lastCounter + rangeSize
-
+        console.log(counterRange)
         await etcd.put(counterResource).value(counterRange.end)
         await lock.release()
     }

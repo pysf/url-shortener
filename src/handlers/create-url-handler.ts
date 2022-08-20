@@ -16,6 +16,7 @@ export function buildCreateURLHandler(options: {
             const shortURL = await createURL(url)
             return res.status(OK).json(shortURL)
         } catch (err) {
+            console.log(err)
             return res
                 .status(INTERNAL_SERVER_ERROR)
                 .json({ error: ReasonPhrases.INTERNAL_SERVER_ERROR })

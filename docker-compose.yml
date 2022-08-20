@@ -7,17 +7,36 @@ volumes:
     redis_data:
 
 services:
-    node:
+    nodeB:
         image: 'node:16'
         user: 'node'
         working_dir: /home/node/app
-        environment:
-            - NODE_ENV=production
+        depends_on:
+            - ectd
+            - redis
         volumes:
             - ./:/home/node/app
         expose:
             - '3000'
         command: 'npm run dev'
+        ports:
+            - 3000:3000
+        networks:
+            - app-tier
+    nodeA:
+        image: 'node:16'
+        user: 'node'
+        working_dir: /home/node/app
+        depends_on:
+            - ectd
+            - redis
+        volumes:
+            - ./:/home/node/app
+        expose:
+            - '3000'
+        command: 'npm run dev'
+        ports:
+            - 4000:3000
         networks:
             - app-tier
     etcd:
