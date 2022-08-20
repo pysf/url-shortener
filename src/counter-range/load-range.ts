@@ -20,7 +20,7 @@ export function buildLoadRange(options: {
         counterRange.start = lastCounter + 1
         counterRange.current = lastCounter + 1
         counterRange.end = lastCounter + rangeSize
-        console.log(counterRange)
+
         await etcd.put(counterResource).value(counterRange.end)
         await lock.release()
     }
