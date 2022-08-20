@@ -4,7 +4,6 @@ describe('url module', () => {
     describe('create a shorturl and save it in key value store', () => {
         describe('given a valid URL ', () => {
             it('must return an ShortURL ', async () => {
-                console.log('....')
                 const id = '5Yep'
                 const domain = 'example.com'
 
