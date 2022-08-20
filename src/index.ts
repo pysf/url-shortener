@@ -1,6 +1,8 @@
-import express from 'express'
+import server from './server'
+import config from 'config'
 
-const app = express()
-app.listen(4000, () => {
-    console.log('server running on port 4000')
+const APP_PORT = config.get('API_PORT')
+
+server.listen(APP_PORT, () => {
+    console.log(`Server started on port: ${APP_PORT}`)
 })
