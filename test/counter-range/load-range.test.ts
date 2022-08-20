@@ -65,6 +65,7 @@ describe('counter-range module', () => {
 
                 // acquire the lock
                 expect(lockFn.mock.calls.length).toBe(1)
+                expect(acquireLockFn.mock.calls.length).toBe(1)
                 expect(lockFn.mock.calls[0][0]).toBe('lock')
 
                 // make sure current etcd counter is read from the etcd server
