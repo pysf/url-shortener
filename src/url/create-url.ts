@@ -1,13 +1,13 @@
 import { ShortURL } from './type'
 
-export default (options: {
+export function buildCreateURL(options: {
     setKey: (key: string, value: string) => Promise<void>
-    createUUID: () => Promise<string>
+    createID: () => Promise<string>
     domain: string
-}) => {
-    const { createUUID, setKey, domain } = options
-    return async (url: string): Promise<ShortURL> => {
-        const id = await createUUID()
+}) {
+    const { createID, setKey, domain } = options
+    return async function createURL(url: string): Promise<ShortURL> {
+        const id = await createID()
         await setKey(id, url)
 
         return {

@@ -1,15 +1,17 @@
-import { buildCreateURL } from './create-url'
+import { buildCreateURL } from '../../src/url/create-url'
 
-describe('url', () => {
-    describe('test createURL', () => {
+describe('url module', () => {
+    describe('create a shorturl and save it in key value store', () => {
         describe('given a valid URL ', () => {
-            it('must save the short url and return an ShortURL ', async () => {
+            it('must return an ShortURL ', async () => {
                 console.log('....')
                 const id = '5Yep'
                 const domain = 'example.com'
 
                 const createID = jest.fn(() => Promise.resolve(id))
-                const setKey = jest.fn(() => Promise.resolve())
+                const setKey = jest.fn((k: string, v: string) =>
+                    Promise.resolve()
+                )
 
                 const createURL = buildCreateURL({
                     createID,
@@ -27,6 +29,8 @@ describe('url', () => {
                 })
                 expect(createID.mock.calls.length).toBe(1)
                 expect(setKey.mock.calls.length).toBe(1)
+                expect(setKey.mock.calls[0][0]).toBe(id)
+                expect(setKey.mock.calls[0][1]).toBe(url)
             })
         })
     })

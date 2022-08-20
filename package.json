@@ -9,7 +9,8 @@
         "dev": "nodemon src/index.ts",
         "format": "npx prettier src/**/* --write .",
         "lint": "eslint src --ext js,ts",
-        "test": "jest"
+        "test:dev": "jest test/**/* --watch",
+        "test": "jest test/**/*"
     },
     "keywords": [],
     "author": "",

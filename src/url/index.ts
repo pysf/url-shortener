@@ -1,12 +1,12 @@
-import buildCreateUrl from './create-url'
+import { buildCreateURL } from './create-url'
 import config from 'config'
 import { setKey } from '../kv-store'
-import { createUUID } from '../uuid'
+import { createID } from '../id'
 
-const createURL = buildCreateUrl({
+const createURL = buildCreateURL({
     domain: config.get('SHORTNER_DOMAIN'),
     setKey,
-    createUUID,
+    createID: createID,
 })
 
 export { createURL }
