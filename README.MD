@@ -1,6 +1,6 @@
 # Refactored-Happiness
 
-Refactored-Happiness is a url shortner that gurantees url uniqness.
+With Refactored-Happiness, urls are guaranteed to be unique.
 
 ## Technical Details
 
