@@ -9,9 +9,14 @@ describe('counter-range module', () => {
                     return Promise.resolve()
                 })
 
+                const acquireLockFn = jest.fn((): Promise<void> => {
+                    return Promise.resolve()
+                })
+
                 const lockFn = jest.fn((key: string): any => {
                     return {
                         release: releaseLockFn,
+                        acquire: acquireLockFn,
                     }
                 })
 

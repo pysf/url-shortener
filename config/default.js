@@ -6,5 +6,5 @@ module.exports = {
     COUNTER_RESOURCE: 'url-shortner-counter',
     COUNTER_RANGE: 10,
     REDIS_URL: 'redis://redis:6379',
-    SHORTNER_DOMAIN: 'tier.app',
+    SHORTNER_DOMAIN: 'https://tier.app',
 }
