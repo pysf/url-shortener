@@ -1,6 +1,9 @@
 setup:
 	npm i
 
+tests:
+	npm run test
+
 up:
 	docker-compose -f docker-compose.yml up -d --build
 

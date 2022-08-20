@@ -4,7 +4,7 @@ module.exports = {
     ETCD_HOSTS: 'etcd:2379',
     LOCK_RESOURCE: 'url-shortner-lock',
     COUNTER_RESOURCE: 'url-shortner-counter',
-    COUNTER_RANGE: 10,
+    COUNTER_RANGE: 1000000,
     REDIS_URL: 'redis://redis:6379',
     SHORTNER_DOMAIN: 'https://tier.app',
     VISIT_KEY_PREFIX: 'visit-',
